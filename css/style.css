@@ -83,7 +83,7 @@ a (hover):				#81a27b (darker green)
 
 body {
 	overflow-x: hidden;
-	padding-top: 118px;
+	padding-top: 85px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -220,7 +220,7 @@ header {
 
 	.fixed {
 		position: fixed;
-		top: -35px;
+		/*top: -35px;*/
 	}
 
 	/* 2.1. TOOLS
@@ -281,7 +281,7 @@ header {
 
 	#homepage .navbar-default {
 		background: url(../images/header.png) repeat-x top;
-		
+
 		/* Transparent CSS gradient doesn't work in IE9 and below. */
 
 		/* Remove this line if you want to use CSS gradient in stead of background image
@@ -295,7 +295,7 @@ header {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 );
 
 		Remove this line if you want to use CSS gradient in stead of background image */
-		
+
 		border: 0;
 		display: block;
 		min-height: 200px;
