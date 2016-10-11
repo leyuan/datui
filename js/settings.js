@@ -7,7 +7,7 @@
 
 		// Header scroll function
 
-		$(window).scroll(function() {    
+		$(window).scroll(function() {
 			var scroll = $(window).scrollTop();
 			if (scroll > 35) {
 				$("header").addClass("fixed");
@@ -24,7 +24,7 @@
 		$(window).resize(function(){
 			$('#home').css({'height': (($(window).height()-118))+'px'});
 		});
-		
+
 		// ====================================================================
 
 		// Home Page Smooth Scroll
@@ -44,7 +44,7 @@
 		// Superslides
 
 		$('#slides').superslides({
-			play: 5000,
+			play: 0,
 			animation_speed: 2000,
 			animation: 'fade',
 			pagination: false
@@ -54,23 +54,23 @@
 
 		// Slider Offers
 
-		$(function () {
-			var list_slideshow = $(".slider-offers ul"),
-			listItems = list_slideshow.children('li'),
-			listLen = listItems.length,
-			i = 0,
-			changeList = function () {
-				listItems.eq(i).fadeOut(1000, function () {
-					i += 1;
-					if (i === listLen) {
-						i = 0;
-					}
-					listItems.eq(i).fadeIn(1000);
-				});
-			};
-			listItems.not(':first').hide();
-			setInterval(changeList, 5000);
-		});
+		// $(function () {
+		// 	var list_slideshow = $(".slider-offers ul"),
+		// 	listItems = list_slideshow.children('li'),
+		// 	listLen = listItems.length,
+		// 	i = 0,
+		// 	changeList = function () {
+		// 		listItems.eq(i).fadeOut(1000, function () {
+		// 			i += 1;
+		// 			if (i === listLen) {
+		// 				i = 0;
+		// 			}
+		// 			listItems.eq(i).fadeIn(1000);
+		// 		});
+		// 	};
+		// 	listItems.not(':first').hide();
+		// 	setInterval(changeList, 5000);
+		// });
 
 		// ====================================================================
 
@@ -182,7 +182,7 @@
 		// Masonry
 
 		var $container = $('.masonry');
-		// initialize Masonry after all images have loaded  
+		// initialize Masonry after all images have loaded
 		$container.imagesLoaded( function() {
 			$container.masonry({
 				itemSelector: '.item'
