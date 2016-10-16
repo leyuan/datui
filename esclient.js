@@ -4,14 +4,14 @@ var client = new elasticsearch.Client({
   log: 'trace',
 });
 
-client.ping({
-  hello: "elasticsearch!"
-}, function (error) {
-  if (error) {
-    console.trace('elasticsearch cluster is down!');
-  } else {
-    console.log('All is well');
-  }
-});
+// client.ping({
+//   hello: "elasticsearch!"
+// }, function (error) {
+//   if (error) {
+//     console.trace('elasticsearch cluster is down!');
+//   } else {
+//     console.log('All is well');
+//   }
+// });
 
 module.exports = client;
