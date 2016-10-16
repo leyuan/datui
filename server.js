@@ -7,7 +7,7 @@ const esClient = require('./esclient');
 
 app.set('port', process.env.PORT || 8081);
 
-app.get('/api/tutors', function (req, res) {
+app.get('/api/tutors', (req, res) => {
   esClient.search({
     index: 'datui',
     type: 'tutors',
@@ -31,6 +31,22 @@ app.get('/api/tutors', function (req, res) {
     } else {
       console.log(error);
       res.send([]);
+    }
+  });
+});
+
+app.get('/api/tutor/:id', (req, res) => {
+  const id = req.params.id;
+  esClient.get({
+    index: 'datui',
+    type: 'tutors',
+    id: id
+  }, function (error, response) {
+    if (!error) {
+      res.send(response['_source']);
+    } else {
+      console.log(error);
+      res.send(null);
     }
   });
 });
