@@ -52,8 +52,6 @@ app.get('/api/tutor/:id', (req, res) => {
   });
 });
 
-app.get('/', express.static('public'));
-
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
