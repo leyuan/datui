@@ -43,7 +43,7 @@ app.get('/api/tutor/:id', (req, res) => {
     id: id
   }, function (error, response) {
     if (!error) {
-      res.send(response['_source']);
+      res.send(JSON.stringify(response['_source']));
     } else {
       console.log(error);
       res.send(null);
