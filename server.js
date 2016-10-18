@@ -12,7 +12,7 @@ app.get('/api/tutors', (req, res) => {
   esClient.search({
     index: 'datui',
     type: 'tutors',
-    size: 2
+    size: 20
   }, function (error, response) {
     if (!error) {
       const tutors = [];
@@ -28,7 +28,7 @@ app.get('/api/tutors', (req, res) => {
         tutors.push(stub);
       });
 
-      res.send(tutors);
+      res.send(JSON.stringify(tutors));
     } else {
       console.log(error);
       res.send([]);
