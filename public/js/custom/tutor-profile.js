@@ -8,7 +8,7 @@ new Vue({
   beforeMount() {
     //TODO - this should be a dynamic ID
     const tutorId = location.hash.substring(1);
-    const url = `http://localhost:8081/api/tutor/${tutorId}`;
+    const url = `${window.location.origin}/api/tutor/${tutorId}`;
     this.$http.get(url).then((res) => {
       if (res.body) {
         const tutor = JSON.parse(res.body);

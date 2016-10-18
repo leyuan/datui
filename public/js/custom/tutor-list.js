@@ -3,7 +3,7 @@ console.log('woooo, tutor list!!');
 new Vue({
   el: '#tutor-list',
   beforeMount() {
-    const url = 'http://localhost:8081/api/tutors';
+    const url = `${window.location.origin}/api/tutors`;
     this.$http.get(url).then((res) => {
       if (res.body) {
         const body = JSON.parse(res.body);
