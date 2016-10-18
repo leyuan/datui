@@ -7,11 +7,11 @@ new Vue({
   el: '#tutor-info',
   beforeMount() {
     //TODO - this should be a dynamic ID
-    const url = 'http://localhost:8081/api/tutor/AVfV9DepqvRn4ZB9p_bb';
+    const url = 'http://localhost:8081/api/tutor/AVfWDHSUqvRn4ZB9p_be';
     this.$http.get(url).then((res) => {
       if (res.body) {
         const tutor = JSON.parse(res.body);
-        console.log(tutor);
+        // console.log(tutor);
         this.$set(this.$data, 'tutor', tutor);
       }
     });

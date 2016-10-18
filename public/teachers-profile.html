@@ -74,14 +74,15 @@
 					<div class="col-sm-6">
 						<h1>{{ tutor.name }}</h1>
 						<p>{{ tutor.intro }}</p>
+						<p>教授课程</p>
+						<ul>
+							<li v-for="course in tutor.courses">{{ course }}</li>
+						</ul>
+						<p>联系方式</p>
 						<ul>
 							<li>{{ tutor.phone }}</li>
 							<li>{{ tutor.email }}</li>
 							<!-- <li></li> --> <!--TODO Courses-->
-						</ul>
-						<p>教授课程</p>
-						<ul>
-							<li v-for="course in tutor.courses">{{ course }}</li>
 						</ul>
 						<!-- <p>{{ tutor.name }}</p>
 						<h1>John Doe</h1>
@@ -486,7 +487,8 @@
 		<!-- jQuery Settings -->
 		<script src="js/settings.js"></script>
 
-
 		<script src="js/custom/tutor-profile.js"></script>
+
+		<script src="/reload/reload.js"></script>
 	</body>
 </html>

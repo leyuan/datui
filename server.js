@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const app = express();
+const reload = require('reload');
 
 const esClient = require('./esclient');
 
@@ -54,6 +55,8 @@ app.get('/api/tutor/:id', (req, res) => {
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
+
+reload(server, app);
 
 server.listen(app.get('port'), function() {
   console.log('Magic happens on port 8081');

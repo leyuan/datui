@@ -20,5 +20,8 @@
   "dependencies": {
     "elasticsearch": "^11.0.1",
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "reload": "^1.0.1"
   }
 }
