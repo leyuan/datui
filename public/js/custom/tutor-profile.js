@@ -19,17 +19,28 @@ new Vue({
   },
   data: {
     tutor: {},
-    canViewContact: userCanViewContact(),
     userEmail: '',
+    emailNotValid: false,
+    canViewContact: userCanViewContact(),
   },
   methods: {
     submitEmail(event) {
       const email = this._data.userEmail;
-      createCookie(COOKIE_NAME, true, 20);
-      this.$set(this._data, 'canViewContact', true);
+      const emailIsValid = checkUAEmail(email);
+      debugger;
+      if (emailIsValid) {
+        createCookie(COOKIE_NAME, true, 20);
+        this.$set(this._data, 'canViewContact', true);
+      } else {
+        this.$set(this._data, 'emailNotValid', true);
+      }
     }
   }
 });
+
+function checkUAEmail(email) {
+  return email.indexOf('ualberta') > -1;
+}
 
 function userCanViewContact() {
   return readCookie(COOKIE_NAME);

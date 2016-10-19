@@ -92,6 +92,9 @@
 							<p>
 								<button type="submit" class="btn btn-primary" v-on:click="submitEmail">提交</button>
 							</p>
+							<p v-if="emailNotValid" style="color: red">
+								答应我，请填写一个UA的邮箱好么😄
+							</p>
 						</div>
 					</div>
 				</div>
