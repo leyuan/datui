@@ -18,10 +18,8 @@
   },
   "homepage": "https://github.com/leyuan/tutor_project#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "elasticsearch": "^11.0.1",
     "express": "^4.14.0"
-  },
-  "devDependencies": {
-    "reload": "^1.0.1"
   }
 }

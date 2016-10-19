@@ -2,11 +2,15 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const app = express();
-const reload = require('reload');
+const bodyParser = require('body-parser')
 
 const esClient = require('./esclient');
 
 app.set('port', process.env.PORT || 8081);
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 app.get('/api/tutors', (req, res) => {
   esClient.search({
@@ -52,11 +56,30 @@ app.get('/api/tutor/:id', (req, res) => {
   });
 });
 
+app.post('/api/students', (req, res) => {
+  // debugger;
+
+  if (req.body && req.body.email) {
+    esClient.create({
+      index: 'datui',
+      type: 'students',
+      body: {
+        email: req.body.email
+      },
+    }, function (error, response) {
+      //
+      if (!error) {
+        res.send(JSON.stringify({status: 200}));
+      }
+    });
+  } else {
+    console.log('email is not present');
+  }
+})
+
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
-
-reload(server, app);
 
 server.listen(app.get('port'), function() {
   console.log('Magic happens on port 8081');
