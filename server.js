@@ -17,7 +17,7 @@ app.get('/api/tutors', (req, res) => {
     if (!error) {
       const tutors = [];
       const tutorData = response.hits.hits;
-      console.log(tutorData);
+      // console.log(tutorData);
 
       tutorData.map((tutor) => {
         const stub = {

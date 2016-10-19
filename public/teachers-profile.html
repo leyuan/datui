@@ -79,10 +79,20 @@
 							<li v-for="course in tutor.courses">{{ course }}</li>
 						</ul>
 						<p>联系方式</p>
-						<ul>
-							<li>{{ tutor.phone }}</li>
-							<li>{{ tutor.email }}</li>
-						</ul>
+						<div v-if="canViewContact">
+							<ul>
+								<li>{{ tutor.phone }}</li>
+								<li>{{ tutor.email }}</li>
+							</ul>
+						</div>
+						<div v-else>
+							<p>
+								<input type="text" id="email" v-model="userEmail" placeholder="请填写UA邮箱来查看联系方式" size=50>
+							</p>
+							<p>
+								<button type="submit" class="btn btn-primary" v-on:click="submitEmail">提交</button>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
