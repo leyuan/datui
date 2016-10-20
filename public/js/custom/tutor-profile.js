@@ -27,10 +27,15 @@ new Vue({
     submitEmail(event) {
       const email = this._data.userEmail;
       const emailIsValid = checkUAEmail(email);
-      debugger;
+      const url = `${window.location.origin}/api/students`
+
       if (emailIsValid) {
-        createCookie(COOKIE_NAME, true, 20);
-        this.$set(this._data, 'canViewContact', true);
+        this.$http.post(url, { email: email }).then((res, err) => {
+          if (res.status === 200) {
+            createCookie(COOKIE_NAME, true, 20);
+            this.$set(this._data, 'canViewContact', true);
+          }
+        })
       } else {
         this.$set(this._data, 'emailNotValid', true);
       }
@@ -39,7 +44,7 @@ new Vue({
 });
 
 function checkUAEmail(email) {
-  return email.indexOf('ualberta') > -1;
+  return email.indexOf('@ualberta.ca') > -1;
 }
 
 function userCanViewContact() {
@@ -70,4 +75,8 @@ function readCookie(name) {
 
 function eraseCookie(name) {
     createCookie(name,"",-1);
+}
+
+function logout() {
+  eraseCookie('doNotCheatPlz');
 }
