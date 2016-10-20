@@ -1,5 +1,3 @@
-console.log('woooo, tutor list!!');
-
 new Vue({
   el: '#tutor-list',
   beforeMount() {
@@ -11,7 +9,6 @@ new Vue({
           tutorStub["link"] = `teachers-profile.html#${tutorStub.id}`;
           return tutorStub;
         });
-        console.log(tutorList);
         this.$set(this.$data, 'tutorList', tutorList);
       }
     });

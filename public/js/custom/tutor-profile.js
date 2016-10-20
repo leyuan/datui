@@ -12,7 +12,6 @@ new Vue({
     this.$http.get(url).then((res) => {
       if (res.body) {
         const tutor = JSON.parse(res.body);
-        // console.log(tutor);
         this.$set(this.$data, 'tutor', tutor);
       }
     });
