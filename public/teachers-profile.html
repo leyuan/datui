@@ -69,7 +69,7 @@
 			<div class="container">
 				<div class="row" id="tutor-info">
 					<div class="col-sm-6">
-						<img :src="tutor.avatar" alt="" class="img-responsive" />
+						<img :src="tutor.avatar" alt="" class="img-responsive" style="margin: auto;"/>
 					</div>
 					<div class="col-sm-6">
 						<h1>{{ tutor.name }}</h1>
@@ -95,6 +95,18 @@
 							<p v-if="emailNotValid" style="color: red">
 								答应我，请填写一个UA的邮箱好么😄
 							</p>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
+								<span class="pull-left">Accounting</span>
+								<span class="pull-right">3.9</span>
+							</div>
+						</div>
+						<div class="progress">
+							<div class="progress-bar" role="progressbar" data-transitiongoal="100">
+								<span class="pull-left">Math</span>
+								<span class="pull-right">4.0</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -156,14 +168,14 @@
 					<div class="col-sm-6">
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
-								<span class="pull-left">Progresssive Web Design</span>
-								<span class="pull-right">90%</span>
+								<span class="pull-left">Accounting</span>
+								<span class="pull-right">3.9</span>
 							</div>
 						</div>
 						<div class="progress">
 							<div class="progress-bar" role="progressbar" data-transitiongoal="100">
-								<span class="pull-left">HTML5</span>
-								<span class="pull-right">100%</span>
+								<span class="pull-left">Math</span>
+								<span class="pull-right">4.0</span>
 							</div>
 						</div>
 						<div class="progress">
@@ -338,6 +350,6 @@
 		<script src="js/settings.js"></script>
 
 		<script src="js/custom/tutor-profile.js"></script>
-
+		<script src="js/custom/shared.js"></script>
 	</body>
 </html>
