@@ -1,19 +1,19 @@
 new Vue({
-  el: '#tutor-courses',
+  el: '#tutor-subjects',
   beforeMount() {
-    const url = `${window.location.origin}/api/courses`;
+    const url = `${window.location.origin}/api/subjects`;
     this.$http.get(url).then((res) => {
       if (res.body) {
         const body = JSON.parse(res.body);
-        const tutorCourses = body.courses.map(course => ({
-          name: course,
-          link: `teachers-list.html#${course}`
+        const tutorSubjects = body.subjects.map(subject => ({
+          name: subject,
+          link: `teachers-list.html#${subject}`
         }));
-        this.$set(this.$data, 'tutorCourses', tutorCourses);
+        this.$set(this.$data, 'tutorSubjects', tutorSubjects);
       }
     });
   },
   data: {
-    tutorCourses: [],
+    tutorSubjects: [],
   },
 })

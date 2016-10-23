@@ -31,6 +31,6 @@ function filterTutors(tutorList) {
 }
 
 function getTutorSubjects(tutor) {
-  const subjects = tutor.courses.map((fullCourse) => fullCourse.split(' ')[0].toLowerCase());
+  const subjects = tutor.courses.map((course) => course.split(' ')[0].toLowerCase());
   return _.uniq(subjects);
 }

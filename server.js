@@ -57,15 +57,15 @@ app.get('/api/tutor/:id', (req, res) => {
   });
 });
 
-app.get('/api/courses', (req, res) => {
+app.get('/api/subjects', (req, res) => {
   esClient.search({
     index: 'datui',
     type: 'tutors',
     fields: 'courses'
   }, function(error, response) {
     if (!error) {
-      const courses = getUniqCourses(response['hits']['hits'].map(hit => hit.fields.courses));
-      res.send(JSON.stringify({courses: courses}));
+      const subjects = getUniqSubjects(response['hits']['hits'].map(hit => hit.fields.courses));
+      res.send(JSON.stringify({subjects: subjects}));
     } else {
       console.log(error);
       res.send(null);
@@ -100,7 +100,7 @@ server.listen(app.get('port'), function() {
 });
 
 // esResponse is an array contain all the subarrays from each tutor
-function getUniqCourses(esResponse) {
+function getUniqSubjects(esResponse) {
   const allCourses = _.reduce(esResponse, (prev, courses) => prev.concat(getCourseArray(courses)), []);
   const uniqCourses = _.uniq(allCourses);
   return uniqCourses;

@@ -1246,12 +1246,12 @@ footer {
 
 /****. CUSTOM
 -------------------------------------------------------------------*/
-#tutor-courses a {
+#tutor-subjects a {
 	display: block;
 }
 
 
-.course-grid {
+.subject-grid {
 	padding: 10px;
 	min-height: 80px;
 	background: grey;
