@@ -4,6 +4,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const _ = require('lodash');
+const validator = require('validator');
 
 const esClient = require('./esclient');
 
@@ -91,6 +92,11 @@ app.post('/api/students', (req, res) => {
   }
 });
 
+app.post('/api/contact-message', (req, res) => {
+  [isValid, errors] = validateContactMessage(req);
+  res.send(JSON.stringify({success: isValid, errors: errors}));
+});
+
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 const server = http.createServer(app);
@@ -110,4 +116,26 @@ function getUniqSubjects(esResponse) {
 // return  => ['Math', 'STAT']
 function getCourseArray(courses) {
   return courses.map(course => course.split(' ')[0]);
+}
+
+function validateContactMessage(request) {
+  const error = {};
+  let isValid = true;
+  if (request.body && request.body.email && request.body.message) {
+    const email = request.body.email;
+    if (!validator.isEmail(email)) {
+      error["email"] = "Email is not valid";
+      isValid = false;
+    }
+
+    const message = request.body.message;
+    if (message.length <= 0) {
+      error["message"] = "Message is not valid";
+      isValid = false;
+    }
+  } else {
+    isValid = false;
+    error["body"] = "Body not defined. Are you using the form??";
+  }
+  return [isValid, error];
 }
