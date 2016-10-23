@@ -5,10 +5,7 @@ new Vue({
     this.$http.get(url).then((res) => {
       if (res.body) {
         const body = JSON.parse(res.body);
-        const tutorList = body.map((tutorStub) => {
-          tutorStub["link"] = `teachers-profile.html#${tutorStub.id}`;
-          return tutorStub;
-        });
+        const tutorList = filterTutors(body);
         this.$set(this.$data, 'tutorList', tutorList);
       }
     });
@@ -16,4 +13,24 @@ new Vue({
   data: {
     tutorList: [],
   }
-})
+});
+
+function filterTutors(tutorList) {
+  const selectedCourse = window.location.hash.substring(1) || '';
+
+  return tutorList.filter((stub) => {
+    stub["link"] = `teachers-profile.html#${stub.id}`;
+    const tutor = stub.source;
+    const tutorSubjects = getTutorSubjects(tutor);
+
+    if (selectedCourse === '') {
+      return true;
+    }
+    return tutorSubjects.indexOf(selectedCourse.toLowerCase()) >= 0;
+  });
+}
+
+function getTutorSubjects(tutor) {
+  const subjects = tutor.courses.map((fullCourse) => fullCourse.split(' ')[0].toLowerCase());
+  return _.uniq(subjects);
+}
