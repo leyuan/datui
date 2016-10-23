@@ -2,7 +2,8 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const _ = require('lodash');
 
 const esClient = require('./esclient');
 
@@ -56,9 +57,23 @@ app.get('/api/tutor/:id', (req, res) => {
   });
 });
 
-app.post('/api/students', (req, res) => {
-  // debugger;
+app.get('/api/courses', (req, res) => {
+  esClient.search({
+    index: 'datui',
+    type: 'tutors',
+    fields: 'courses'
+  }, function(error, response) {
+    if (!error) {
+      const courses = getUniqCourses(response['hits']['hits'].map(hit => hit.fields.courses));
+      res.send(JSON.stringify({courses: courses}));
+    } else {
+      console.log(error);
+      res.send(null);
+    }
+  });
+});
 
+app.post('/api/students', (req, res) => {
   if (req.body && req.body.email) {
     esClient.create({
       index: 'datui',
@@ -67,7 +82,6 @@ app.post('/api/students', (req, res) => {
         email: req.body.email
       },
     }, function (error, response) {
-      //
       if (!error) {
         res.send(JSON.stringify({status: 200}));
       }
@@ -75,7 +89,7 @@ app.post('/api/students', (req, res) => {
   } else {
     console.log('email is not present');
   }
-})
+});
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
@@ -84,3 +98,16 @@ const server = http.createServer(app);
 server.listen(app.get('port'), function() {
   console.log('Magic happens on port 8081');
 });
+
+// esResponse is an array contain all the subarrays from each tutor
+function getUniqCourses(esResponse) {
+  const allCourses = _.reduce(esResponse, (prev, courses) => prev.concat(getCourseArray(courses)), []);
+  const uniqCourses = _.uniq(allCourses);
+  return uniqCourses;
+}
+
+// @params => ['Math 101', 'STAT 151']
+// return  => ['Math', 'STAT']
+function getCourseArray(courses) {
+  return courses.map(course => course.split(' ')[0]);
+}
