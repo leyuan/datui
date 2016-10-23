@@ -15,9 +15,7 @@ $(document).ready(function() {
 			'phone' 	    : $('input#contact-input-phone').val(),
 			'message' 		: $('textarea#contact-input-message').val()
 		};
-		debugger;
 
-		// process the form
 		$.ajax({
 			type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
 			url 		: '/api/contact-message', // the url where we want to POST
@@ -26,53 +24,23 @@ $(document).ready(function() {
 			encode 		: true
 		})
 		.done(function(data) {
-
-			// log data to the console so we can see
-			console.log(data);
-			// here we will handle errors and validation messages
 			if (!data.success) {
-
-				// handle errors for name ---------------
-				if (data.errors.name) {
-					$('#contact-name-group').addClass('has-error'); // add the error class to show red input
-					$('#contact-name-group label').append('<span class="help-block">' + data.errors.name + '</span>'); // add the actual error message under our input
-				}
-
-				// handle errors for email ---------------
 				if (data.errors.email) {
 					$('#contact-email-group').addClass('has-error'); // add the error class to show red input
-					$('#contact-email-group label').append('<span class="help-block">' + data.errors.email + '</span>'); // add the actual error message under our input
+					$('#contact-email-group').append('<span class="help-block">😣 邮箱格式好像不咋对 😣</span>'); // add the actual error message under our input
 				}
 
-				// handle errors for subject ---------------
-				if (data.errors.phone) {
-					$('#contact-phone-group').addClass('has-error'); // add the error class to show red input
-					$('#contact-phone-group label').append('<span class="help-block">' + data.errors.phone + '</span>'); // add the actual error message under our input
-				}
-
-				// handle errors for message ---------------
 				if (data.errors.message) {
 					$('#contact-message-group').addClass('has-error'); // add the error class to show red input
-					$('#contact-message-group label').append('<span class="help-block">' + data.errors.message + '</span>'); // add the actual error message under our input
+					$('#contact-message-group').append('<span class="help-block">😣 好像没有对我们说话 😣</span>'); // add the actual error message under our input
 				}
 
 			} else {
-
-				// ALL GOOD! just show the success message!
-				$('#contact-form').append('<div class="alert alert-success">Thank You</div>');
-
-				// usually after form submission, you'll want to redirect
-				// window.location = '/thank-you'; // redirect a user to another page
-
+				$('#contact-form').append('<div class="alert alert-success">😄 Nice!提交成功了！😄</div>');
 			}
 		})
-
-		// using the fail promise callback
 		.fail(function(data) {
-
-			// show any errors
-			// best to remove for production
-			console.log(data);
+			$('#contact-form').append('<div class="alert alert-success">😳 因为莫名的原因.. 失败了... 😳</div>');
 		});
 
 		// stop the form from submitting the normal way and refreshing the page

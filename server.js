@@ -1,12 +1,13 @@
+const _ = require('lodash');
+const bodyParser = require('body-parser');
+const esClient = require('./esclient');
 const express = require('express');
 const http = require('http');
+const nodemailer = require('nodemailer');
 const path = require('path');
-const app = express();
-const bodyParser = require('body-parser');
-const _ = require('lodash');
 const validator = require('validator');
 
-const esClient = require('./esclient');
+const app = express();
 
 app.set('port', process.env.PORT || 8081);
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -94,6 +95,9 @@ app.post('/api/students', (req, res) => {
 
 app.post('/api/contact-message', (req, res) => {
   [isValid, errors] = validateContactMessage(req);
+  if (isValid) {
+    sendEmail(req.body);
+  }
   res.send(JSON.stringify({success: isValid, errors: errors}));
 });
 
@@ -121,15 +125,15 @@ function getCourseArray(courses) {
 function validateContactMessage(request) {
   const error = {};
   let isValid = true;
-  if (request.body && request.body.email && request.body.message) {
-    const email = request.body.email;
-    if (!validator.isEmail(email)) {
+  if (request.body) {
+    if (!request.body.email || !validator.isEmail(request.body.email)) {
+      const email = request.body.email;
       error["email"] = "Email is not valid";
       isValid = false;
     }
 
-    const message = request.body.message;
-    if (message.length <= 0) {
+    if (!request.body.message || request.body.message.length <= 0) {
+      const message = request.body.message;
       error["message"] = "Message is not valid";
       isValid = false;
     }
@@ -138,4 +142,25 @@ function validateContactMessage(request) {
     error["body"] = "Body not defined. Are you using the form??";
   }
   return [isValid, error];
+}
+
+function sendEmail(body) {
+  var transporter = nodemailer.createTransport('smtps://lyuu09%40gmail.com:LuciYu@1990@smtp.gmail.com');
+
+  // setup e-mail data with unicode symbols
+  var mailOptions = {
+      from: '"Da Tui" <lyuu09@gmail.com>', // sender address
+      to: 'leyuan@mailinator.com', // list of receivers
+      subject: 'Hello ✔', // Subject line
+      text: JSON.stringify(body, null, 4) // plaintext body
+      // html: `<p></p>`
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, function(error, info){
+      if(error){
+          return console.log(error);
+      }
+      console.log('Message sent: ' + info.response);
+  });
 }
