@@ -16,7 +16,8 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
-
+		<script src="js/custom/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
 	</head>
 	<body id="homepage">
 
@@ -92,29 +93,10 @@
 		<!-- ========== WELCOME START ========== -->
 
 		<section id="welcome">
-			<div class="container">
-				<div class="row text-center">
-					<h3>Why Us</h3>
-					<p>Because we nb.</p>
-				</div>
-				<div class="row text-center">
-					<div class="col-sm-3">
-						<p><img src="http://placehold.it/130x130.gif" alt="" /></p>
-						<h3>ECON 101, 102, 2XX</h3>
-					</div>
-					<div class="col-sm-3">
-						<p><img src="http://placehold.it/130x130.gif" alt="" /></p>
-						<h3>STAT 151, 251</h3>
-					</div>
-					<div class="col-sm-3">
-						<p><img src="http://placehold.it/130x130.gif" alt="" /></p>
-						<h3>FINANCE 301</h3>
-					</div>
-					<div class="col-sm-3">
-						<p><img src="http://placehold.it/130x130.gif" alt="" /></p>
-						<h3>ACCOUNTING 496</h3>
-					</div>
-				</div>
+			<div id="tutor-courses" class="row text-center">
+				<a v-for="course in tutorCourses" :href="course.link" class="container col-lg-3 col-md-3 col-sm-3">
+					<div class="course-grid">{{course.name}}</div>
+				</a>
 			</div>
 		</section>
 
@@ -349,6 +331,7 @@
 		<script src="js/settings.js"></script>
 
 		<!-- Cutsom JS-->
+		<script src="js/custom/tutor-courses.js"></script>
 		<script src="js/custom/shared.js"></script>
 
 	</body>

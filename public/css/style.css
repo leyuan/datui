@@ -1244,6 +1244,22 @@ footer {
 		margin-left: 10px;
 	}
 
+/****. CUSTOM
+-------------------------------------------------------------------*/
+#tutor-courses a {
+	display: block;
+}
+
+
+.course-grid {
+	padding: 10px;
+	min-height: 80px;
+	background: grey;
+	color: white;
+}
+
+
+
 /* 9. RESPONSIVE STYLES
 -------------------------------------------------------------------*/
 
