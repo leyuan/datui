@@ -124,7 +124,7 @@ function getCourseArray(courses) {
 
 function validateContactMessage(request) {
   const error = {};
-  let isValid = true;
+  var isValid = true;
   if (request.body) {
     if (!request.body.email || !validator.isEmail(request.body.email)) {
       const email = request.body.email;
