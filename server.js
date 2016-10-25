@@ -94,11 +94,11 @@ app.post('/api/students', (req, res) => {
 });
 
 app.post('/api/contact-message', (req, res) => {
-  [isValid, errors] = validateContactMessage(req);
-  if (isValid) {
+  const validResult = validateContactMessage(req);
+  if (validResult.isValid) {
     sendEmail(req.body);
   }
-  res.send(JSON.stringify({success: isValid, errors: errors}));
+  res.send(JSON.stringify({success: isValid, errors: validResult.error}));
 });
 
 app.use('/', express.static(path.join(__dirname, 'public')));
@@ -141,7 +141,11 @@ function validateContactMessage(request) {
     isValid = false;
     error["body"] = "Body not defined. Are you using the form??";
   }
-  return [isValid, error];
+  // return [isValid, error];
+  return {
+    isValid: isValid,
+    error: error
+  };
 }
 
 function sendEmail(body) {
