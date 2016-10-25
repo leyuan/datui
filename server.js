@@ -6,8 +6,16 @@ const http = require('http');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const validator = require('validator');
+const winston = require('winston');
 
 const app = express();
+
+var logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.Console)(),
+    new (winston.transports.File)({ filename: 'log.txt' })
+  ]
+});
 
 app.set('port', process.env.PORT || 8081);
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -163,7 +171,8 @@ function sendEmail(body) {
   // send mail with defined transport object
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
-          return console.log(error);
+        logger.info(error);
+        return console.log(error);
       }
       console.log('Message sent: ' + info.response);
   });
