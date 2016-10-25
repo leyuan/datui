@@ -174,6 +174,8 @@ function sendEmail(body) {
         logger.info(error);
         return console.log(error);
       }
+
+      logger.info('Email Sent:' + info.response);
       console.log('Message sent: ' + info.response);
   });
 }
