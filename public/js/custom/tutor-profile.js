@@ -78,4 +78,5 @@ function eraseCookie(name) {
 
 function logout() {
   eraseCookie('doNotCheatPlz');
+  event.preventDefault();
 }
