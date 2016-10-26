@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Smartway - HTML Template">
 		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu">
-		<title>大腿Tutor - 上大学有我们就够了</title>
+		<title>大腿Tutor - 找tutor，有我们就够了</title>
 		<link rel="shortcut icon" href="images/favicon.png">
 
 		<!-- Main Stylesheet -->
@@ -42,7 +42,7 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="index.html">首页</a></li>
 							<li><a href="teachers-list.html"><u>找大腿</u></a></li>
-							<li><a href="contact.html"><u>加入大腿</u></a></li>
+							<li><a href="contact.html"><u>成为大腿</u></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -55,30 +55,17 @@
 		<div id="slides">
 			<div class="slides-container">
 				<img src="images/bg.png" alt="" />
-				<!-- <img src="http://placehold.it/1600x900.jpg" alt="" />
-				<img src="http://placehold.it/1600x900.jpg" alt="" /> -->
 			</div>
 
 			<div class="tint"></div>
 
-			<!-- SLIDER OFFERS START -->
-			<div class="slider-offers text-center">
+			<div class="slider-offers">
 				<ul>
 					<li>
-						<!-- <h3>HTML Template for LMS</h3>
-						<h4>Crafted for Learning Management System</h4>
-						<p><a href="http://themeforest.net/user/Coffeecream" target="_blank" class="btn btn-primary">Purchase Now</a></p> -->
+						<h1 style="margin: 8px; color: white; font-size: 28px;">找tutor，有我们就够了！</h1>
+						<button class="btn btn-white" onclick="scrollToSubjects()">找大腿</button>
+						<button class="btn btn-white" onclick="joinDatui()">成为大腿</button>
 					</li>
-					<!-- <li>
-						<h3>Fully Responsive Design</h3>
-						<h4>Looks perfect on all mobile devices</h4>
-						<p><a href="http://themeforest.net/user/Coffeecream" target="_blank" class="btn btn-primary">Purchase Now</a></p>
-					</li>
-					<li>
-						<h3>Packed with options</h3>
-						<h4>Check out all features</h4>
-						<p><a href="http://themeforest.net/user/Coffeecream" target="_blank" class="btn btn-primary">Purchase Now</a></p>
-					</li> -->
 				</ul>
 			</div>
 			<!-- SLIDER OFFERS END -->
@@ -89,14 +76,21 @@
 		</div>
 
 		<!-- ========== BANNER END ========== -->
-
+		<div id="scroll-to"></div>
 		<!-- ========== WELCOME START ========== -->
 
 		<section id="welcome">
-			<div id="tutor-subjects" class="row text-center">
-				<a v-for="subject in tutorSubjects" :href="subject.link" class="container col-lg-3 col-md-3 col-sm-3">
-					<div class="subject-grid">{{subject.name}}</div>
-				</a>
+			<div id="tutor-subjects" class="container" class="row text-center" style="padding-left: 10%;">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2>选择要抱的课程</h2>
+					</div>
+				</div>
+				<div class="row">
+					<a v-for="subject in tutorSubjects" :href="subject.link" class="col-lg-3 col-md-3 col-sm-3">
+						<div class="subject-grid text-center">{{subject.name}}</div>
+					</a>
+				</div>
 			</div>
 		</section>
 
@@ -128,47 +122,9 @@
 						<p>
 							是的，曾经的我也是你们之中的一员，作为tutor，作为学生，我都希望有这么一个地方,<br/>
 							我可以找到我需要的帮助，或者做一个能够给予帮助的人,<br/>
-							“加入大腿吧，我们需要你！”
+							“成为大腿吧，我们需要你！”
 						</p>
 					</div>
-					<!-- <div class="col-sm-6">
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
-								<span class="pull-left">Progresssive Web Design</span>
-								<span class="pull-right">90%</span>
-							</div>
-						</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="100">
-								<span class="pull-left">HTML5</span>
-								<span class="pull-right">100%</span>
-							</div>
-						</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="80">
-								<span class="pull-left">CSS3</span>
-								<span class="pull-right">80%</span>
-							</div>
-						</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="70">
-								<span class="pull-left">jQuery</span>
-								<span class="pull-right">70%</span>
-							</div>
-						</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="80">
-								<span class="pull-left">Online Marketing</span>
-								<span class="pull-right">80%</span>
-							</div>
-						</div>
-						<div class="progress">
-							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
-								<span class="pull-left">SEO</span>
-								<span class="pull-right">90%</span>
-							</div>
-						</div>
-					</div> -->
 				</div>
 			</div>
 		</section>

@@ -6,3 +6,12 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-86176832-1', 'auto');
 ga('send', 'pageview');
+
+function scrollToSubjects() {
+  $('html, body').animate({ scrollTop: $('#scroll-to').offset().top }, 'slow');
+  return false;
+}
+
+function joinDatui() {
+  window.location.href="/contact.html";
+}
