@@ -8,7 +8,7 @@ new Vue({
   el: '#tutor-info',
   beforeMount() {
     const tutorId = location.hash.substring(1); // get rid of the # character
-    const url = `${window.location.origin}/api/tutor/${tutorId}`;
+    const url = `/api/tutor/${tutorId}`;
     this.$http.get(url).then((res) => {
       if (res.body) {
         const tutor = JSON.parse(res.body);
@@ -26,7 +26,7 @@ new Vue({
     submitEmail(event) {
       const email = this._data.userEmail;
       const emailIsValid = checkUAEmail(email);
-      const url = `${window.location.origin}/api/students`
+      const url = "/api/students";
 
       if (emailIsValid) {
         this.$http.post(url, { email: email }).then((res, err) => {
