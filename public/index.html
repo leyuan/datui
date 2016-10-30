@@ -36,7 +36,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Smartway - HTML Template" class="img-responsive logo" /></a>
+						<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="DaTui" class="img-responsive logo" /></a>
 					</div>
 					<nav class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
@@ -80,7 +80,7 @@
 		<!-- ========== WELCOME START ========== -->
 
 		<section id="welcome">
-			<div id="tutor-subjects" class="container" class="row text-center" style="padding-left: 10%;">
+			<div id="tutor-subjects" class="container" class="row text-center dt-container" >
 				<div class="row">
 					<div class="col-sm-12">
 						<h2>选择要抱的课程</h2>
@@ -88,7 +88,7 @@
 				</div>
 				<div class="row">
 					<a v-for="subject in tutorSubjects" :href="subject.link" class="col-lg-3 col-md-3 col-sm-3">
-						<div class="subject-grid text-center">{{subject.name}}</div>
+						<div class="subject-grid text-center" v-cloak>{{subject.name}}</div>
 					</a>
 				</div>
 			</div>
@@ -99,7 +99,7 @@
 		<!-- ========== SKILLS START ========== -->
 
 		<section id="skills" style="padding-top: 40px;">
-			<div class="container" style="padding-left: 10%;">
+			<div class="container dt-container" >
 				<div class="row">
 					<div class="col-sm-12">
 						<h2>我们的初衷</h2>

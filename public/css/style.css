@@ -203,6 +203,27 @@ iframe {
 .dt-spinner{
 	font-size: 18px;
 }
+
+.dt-container{
+	padding-left: 10%;
+}
+
+.dt-teacher-dropdown{
+	margin-bottom: 10px;
+}
+
+.dt-span-label{
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.dt-no-margin{
+	margin: 0;
+}
+
+[v-cloak] {
+  display: none;
+}
 /* 2. HEADER
 -------------------------------------------------------------------*/
 
@@ -871,6 +892,7 @@ header {
 		margin: 0;
 	}
 
+
 	/* 5.9. UPCOMING EXAMS
 	-------------------------------------------------------------------*/
 
@@ -1424,6 +1446,9 @@ footer {
 	/* 9.3. Smartphones
 	-------------------------------------------------------------------*/
 	@media (max-width: 480px) {
+		.slider-offers{
+			left: 10%;
+		}
 
 		.slider-offers h3 {
 			font-size: 24px;
@@ -1431,6 +1456,10 @@ footer {
 
 		.slider-offers h4 {
 			font-size: 14px;
+		}
+
+		.dt-container{
+			padding-left: 15px;
 		}
 
 		#homepage .tools {

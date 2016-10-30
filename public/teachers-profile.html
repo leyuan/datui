@@ -10,7 +10,7 @@
 
 		<!-- Main Stylesheet -->
 		<link href="css/style.css" rel="stylesheet">
-
+		
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
@@ -18,31 +18,37 @@
 		<![endif]-->
 		<script src="js/custom/vue.js"></script>
 		<script src="js/custom/vue-resource.min.js"></script>
+
+		<style>
+			.row{
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body >
 
 		<header>
-			<!-- ==== NAVBAR START ==== -->
-			<div class="navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Smartway - HTML Template" class="img-responsive logo" /></a>
-					</div>
-					<nav class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.html">首页</a></li>
-							<li class="active"><a href="teachers-list.html"><u>找大腿</u></a></li>
-							<li><a href="contact.html"><u>成为大腿</u></a></li>
-						</ul>
-					</nav>
+		<!-- ==== NAVBAR START ==== -->
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="DaTui" class="img-responsive logo" /></a>
 				</div>
+				<nav class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">首页</a></li>
+						<li class="active"><a href="teachers-list.html"><u>找大腿</u></a></li>
+						<li><a href="contact.html"><u>成为大腿</u></a></li>
+					</ul>
+				</nav>
 			</div>
-			<!-- ==== NAVBAR END ==== -->
+		</div>
+		<!-- ==== NAVBAR END ==== -->
 
 		</header>
 
@@ -71,13 +77,11 @@
 					<div class="col-sm-6">
 						<img :src="tutor.avatar" alt="" class="img-responsive" style="margin: auto;"/>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-6" v-cloak>
 						<h1>{{ tutor.name }}</h1>
 						<p>{{ tutor.intro }}</p>
 						<p>教授课程</p>
-						<ul>
-							<li v-for="course in tutor.courses">{{ course }}</li>
-						</ul>
+						<p><span v-for="course in tutor.courses" class="label label-success dt-span-label">{{ course }}</span></p>
 						<p>联系方式</p>
 						<div v-if="canViewContact">
 							<ul>
@@ -87,7 +91,7 @@
 						</div>
 						<div v-else>
 							<p>
-								<input type="text" id="email" v-model="userEmail" placeholder="请填写UA邮箱来查看联系方式" size=50>
+								<input type="text" id="email" class="form-control" v-model="userEmail" placeholder="请填写UA邮箱来查看联系方式" size=50>
 							</p>
 							<p>
 								<button type="submit" class="btn btn-primary" v-on:click="submitEmail">提交</button>
@@ -259,7 +263,7 @@
 									<!-- <div class="input-group-addon"><i class="fa fa-phone"></i></div> -->
 								</div>
 							</div>
-							<button type="submit" class="btn btn-primary">提交</button>
+							<button type="submit" class="btn btn-primary" id="msg-submit">提交</button>
 						</form>
 					</div>
 					<!-- ==== APPLY FOR TEACHER END == -->

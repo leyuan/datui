@@ -35,7 +35,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Smartway - HTML Template" class="img-responsive logo" /></a>
+					<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="DaTui" class="img-responsive logo" /></a>
 				</div>
 				<nav class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
@@ -88,18 +88,19 @@
 
 			<h2>大腿们 and Tutors</h2>
 
-			<select v-model="selected" v-on:change="doThis($event)">
+			<select v-model="selected" v-on:change="doThis($event)" class="form-control dt-teacher-dropdown" v-cloak>
 				<option>All</option>
-				<option v-for="subject in subjects">{{subject}}</option>
+				<option v-for="subject in subjects" >{{subject}}</option>
 				<option>Don't have what I want</option>
 			</select>
 
 			<ul class="teachers">
 
 				<li v-for="tutorStub in tutorList" class="col-lg-3 col-md-4 col-sm-6">
-					<img :src="tutorStub.source.avatar" alt="" class="img-responsive" />
-					<div class="description">
+					<a :href="tutorStub.link"><img :src="tutorStub.source.avatar" alt="" class="img-responsive" /></a>
+					<div class="description" v-cloak>
 						<h3>{{ tutorStub.source.name }}</h3>
+						<p><span v-for="course in tutorStub.source.courses" class="label label-success dt-span-label">{{ course }}</span></p>
 						<p>{{ tutorStub.source.intro }}</p>
 						<a :href="tutorStub.link">Read More <i class="fa fa-angle-right"></i></a>
 					</div>
@@ -134,38 +135,38 @@
 				<!-- ==== ABOUT END == -->
 
 				<!-- ==== APPLY FOR TEACHER START == -->
-				<div class="col-sm-3">
-					<h3>联系我们</h3>
-					<form role="form" name="contact-form" id="contact-form">
-						<div class="form-group" id="contact-name-group">
-							<div class="input-group">
-								<input type="text" class="form-control" id="contact-input-name" placeholder="姓名">
-								<div class="input-group-addon"><i class="fa fa-user"></i></div>
+					<div class="col-sm-3">
+						<h3>联系我们</h3>
+						<form role="form" name="contact-form" id="contact-form">
+							<div class="form-group" id="contact-name-group">
+								<div class="input-group">
+									<input type="text" class="form-control" id="contact-input-name" placeholder="姓名">
+									<div class="input-group-addon"><i class="fa fa-user"></i></div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group" id="contact-email-group">
-							<div class="input-group">
-								<input type="email" class="form-control" id="contact-input-email" placeholder="邮箱">
-								<div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+							<div class="form-group" id="contact-email-group">
+								<div class="input-group">
+									<input type="email" class="form-control" id="contact-input-email" placeholder="邮箱">
+									<div class="input-group-addon"><i class="fa fa-envelope"></i></div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group" id="contact-phone-group">
-							<div class="input-group">
-								<input type="text" class="form-control" id="contact-input-phone" placeholder="电话">
-								<div class="input-group-addon"><i class="fa fa-phone"></i></div>
+							<div class="form-group" id="contact-phone-group">
+								<div class="input-group">
+									<input type="text" class="form-control" id="contact-input-phone" placeholder="电话">
+									<div class="input-group-addon"><i class="fa fa-phone"></i></div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group" id="contact-message-group">
-							<div class="input-group">
-								<!-- <input type="text" class="form-control" id="contact-input-phone" placeholder="Phone"> -->
-								<textarea name="" id="contact-input-message" class="form-control" placeholder="想对我们说的话"></textarea>
-								<!-- <div class="input-group-addon"><i class="fa fa-phone"></i></div> -->
+							<div class="form-group" id="contact-message-group">
+								<div class="input-group">
+									<!-- <input type="text" class="form-control" id="contact-input-phone" placeholder="Phone"> -->
+									<textarea name="" id="contact-input-message" class="form-control" placeholder="想对我们说的话"></textarea>
+									<!-- <div class="input-group-addon"><i class="fa fa-phone"></i></div> -->
+								</div>
 							</div>
-						</div>
-						<button type="submit" class="btn btn-primary">提交</button>
-					</form>
-				</div>
-				<!-- ==== APPLY FOR TEACHER END == -->
+							<button type="submit" class="btn btn-primary" id="msg-submit">提交</button>
+						</form>
+					</div>
+					<!-- ==== APPLY FOR TEACHER END == -->
 
 				<!-- ==== CONTACT START == -->
 				<div class="col-sm-3">
