@@ -23,6 +23,55 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
+/**
+ * API for creating a new tutor
+ */
+app.post('/api/tutor/create', (req, res) => {
+  if(!req.body || !req.body.secret || req.body.secret != "datui") {
+    res.send('No no..');
+    return;
+  }
+
+  var tutorData = req.body;
+  delete tutorData.secret;
+
+  console.log(tutorData);
+
+  esClient.create({
+    index: 'datui',
+    type: 'tutors',
+    body: tutorData
+  }, function (error, response) {
+    console.log(error);
+    console.log(response);
+    res.send(response);
+  });
+});
+
+/**
+ * API for deleting an existing tutor
+ */
+app.post('/api/tutor/delete', (req, res) => {
+  if(!req.body || !req.body.secret || req.body.secret != "datui") {
+    res.send('No no..');
+    return;
+  }
+  
+  var id = req.body.id;
+  console.log(id);
+  esClient.delete({
+    index: 'datui',
+    type: 'tutors',
+    id: id
+  }, function (error, response) {
+    console.log(error);
+    console.log(response);
+    res.send(response);
+  });
+});
+
+
+
 app.get('/api/tutors', (req, res) => {
   esClient.search({
     index: 'datui',
@@ -32,7 +81,7 @@ app.get('/api/tutors', (req, res) => {
     if (!error) {
       const tutors = [];
       const tutorData = response.hits.hits;
-      // console.log(tutorData);
+      console.log(tutorData);
 
       tutorData.map((tutor) => {
         const stub = {
@@ -162,7 +211,7 @@ function sendEmail(body) {
   // setup e-mail data with unicode symbols
   var mailOptions = {
       from: '"Da Tui" <lyuu09@gmail.com>', // sender address
-      to: 'leyuan@mailinator.com', // list of receivers
+      to: 'hello@datuiweb.com', // list of receivers
       subject: 'Hello ✔', // Subject line
       text: JSON.stringify(body, null, 4) // plaintext body
       // html: `<p></p>`
