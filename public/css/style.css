@@ -222,6 +222,20 @@ iframe {
 	margin: 0;
 }
 
+.dt-margin-bottom-30{
+	margin-bottom: 30px;
+}
+.dt-full-width{
+	width: 100%;
+}
+
+.profile-insight {
+    color: rgba(0,0,0,.8);
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -1448,7 +1462,7 @@ footer {
 	-------------------------------------------------------------------*/
 	@media (max-width: 480px) {
 		.slider-offers{
-			left: 10%;
+			left: 5%;
 		}
 
 		.slider-offers h3 {

@@ -1,14 +1,14 @@
-const _ = require('lodash');
-const bodyParser = require('body-parser');
-const esClient = require('./esclient');
-const express = require('express');
-const http = require('http');
-const nodemailer = require('nodemailer');
-const path = require('path');
-const validator = require('validator');
-const winston = require('winston');
+var _ = require('lodash');
+var bodyParser = require('body-parser');
+var esClient = require('./esclient');
+var express = require('express');
+var http = require('http');
+var nodemailer = require('nodemailer');
+var path = require('path');
+var validator = require('validator');
+var winston = require('winston');
 
-const app = express();
+var app = express();
 
 var logger = new (winston.Logger)({
   transports: [
@@ -79,12 +79,12 @@ app.get('/api/tutors', (req, res) => {
     size: 20
   }, function (error, response) {
     if (!error) {
-      const tutors = [];
-      const tutorData = response.hits.hits;
+      var tutors = [];
+      var tutorData = response.hits.hits;
       console.log(tutorData);
 
       tutorData.map((tutor) => {
-        const stub = {
+        var stub = {
           id: tutor['_id'],
           source: tutor['_source'] //TODO - may need to simplify the data in future
         };
@@ -101,7 +101,7 @@ app.get('/api/tutors', (req, res) => {
 });
 
 app.get('/api/tutor/:id', (req, res) => {
-  const id = req.params.id;
+  var id = req.params.id;
   esClient.get({
     index: 'datui',
     type: 'tutors',
@@ -123,7 +123,7 @@ app.get('/api/subjects', (req, res) => {
     fields: 'courses'
   }, function(error, response) {
     if (!error) {
-      const subjects = getUniqSubjects(response['hits']['hits'].map(hit => hit.fields.courses));
+      var subjects = getUniqSubjects(response['hits']['hits'].map(hit => hit.fields.courses));
       res.send(JSON.stringify({subjects: subjects}));
     } else {
       console.log(error);
@@ -151,7 +151,7 @@ app.post('/api/students', (req, res) => {
 });
 
 app.post('/api/contact-message', (req, res) => {
-  const validResult = validateContactMessage(req);
+  var validResult = validateContactMessage(req);
   if (validResult.isValid) {
     sendEmail(req.body);
   }
@@ -160,7 +160,7 @@ app.post('/api/contact-message', (req, res) => {
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-const server = http.createServer(app);
+var server = http.createServer(app);
 
 server.listen(app.get('port'), function() {
   console.log('Magic happens on port 8081');
@@ -168,8 +168,8 @@ server.listen(app.get('port'), function() {
 
 // esResponse is an array contain all the subarrays from each tutor
 function getUniqSubjects(esResponse) {
-  const allCourses = _.reduce(esResponse, (prev, courses) => prev.concat(getCourseArray(courses)), []);
-  const uniqCourses = _.uniq(allCourses);
+  var allCourses = _.reduce(esResponse, (prev, courses) => prev.concat(getCourseArray(courses)), []);
+  var uniqCourses = _.uniq(allCourses);
   return uniqCourses;
 }
 
@@ -180,17 +180,17 @@ function getCourseArray(courses) {
 }
 
 function validateContactMessage(request) {
-  const error = {};
+  var error = {};
   var isValid = true;
   if (request.body) {
     if (!request.body.email || !validator.isEmail(request.body.email)) {
-      const email = request.body.email;
+      var email = request.body.email;
       error["email"] = "Email is not valid";
       isValid = false;
     }
 
     if (!request.body.message || request.body.message.length <= 0) {
-      const message = request.body.message;
+      var message = request.body.message;
       error["message"] = "Message is not valid";
       isValid = false;
     }

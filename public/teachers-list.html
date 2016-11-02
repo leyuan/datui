@@ -97,10 +97,10 @@
 			<ul class="teachers">
 
 				<li v-for="tutorStub in tutorList" class="col-lg-3 col-md-4 col-sm-6">
-					<a :href="tutorStub.link"><img :src="tutorStub.source.avatar" alt="" class="img-responsive" /></a>
+					<a :href="tutorStub.link"><img :src="tutorStub.source.avatar" alt="" class="img-responsive dt-full-width" /></a>
 					<div class="description" v-cloak>
 						<h3>{{ tutorStub.source.name }}</h3>
-						<p><span v-for="course in tutorStub.source.courses" class="label label-success dt-span-label">{{ course }}</span></p>
+						<div class="dt-margin-bottom-30"><span v-for="course in tutorStub.source.courses" class="label label-success dt-span-label">{{ course }}</span></div>
 						<p>{{ tutorStub.source.intro }}</p>
 						<a :href="tutorStub.link">Read More <i class="fa fa-angle-right"></i></a>
 					</div>

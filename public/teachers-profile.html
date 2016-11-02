@@ -80,9 +80,18 @@
 					<div class="col-sm-6" v-cloak>
 						<h1>{{ tutor.name }}</h1>
 						<p>{{ tutor.intro }}</p>
-						<p>教授课程</p>
+						<div class="profile-insight">教授课程</div>
 						<p><span v-for="course in tutor.courses" class="label label-success dt-span-label">{{ course }}</span></p>
-						<p>联系方式</p>
+						<div class="profile-insight">预约</div>
+						<p>{{ tutor.appointment }}</p>
+
+						<div class="profile-insight">可教课时间</div>
+						<p>{{ tutor.availableTime }}</p>
+
+						<div class="profile-insight">收费标准</div>
+						<p><span v-for="rate in tutor.rates" class="label label-danger dt-span-label">1对{{rate.type}} ${{ rate.rate }}/hr</span></p>
+
+						<div class="profile-insight">联系方式</div>
 						<div v-if="canViewContact">
 							<ul>
 								<li>{{ tutor.phone }}</li>
