@@ -235,6 +235,23 @@ iframe {
     font-weight: 700;
     padding-bottom: 8px;
 }
+@media (min-width: 1200px) {
+    .row > .col-lg-3:nth-child(4n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 992px) and (max-width:1199px) {
+    .row > .col-md-4:nth-child(3n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .row > .col-sm-6:nth-child(2n+1) {
+        clear: left;
+    }
+}
 
 [v-cloak] {
   display: none;
