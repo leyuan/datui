@@ -89,7 +89,10 @@
 						<p>{{ tutor.availableTime }}</p>
 
 						<div class="profile-insight">收费标准</div>
-						<p><span v-for="rate in tutor.rates" class="label label-danger dt-span-label">1对{{rate.type}} ${{ rate.rate }}/hr</span></p>
+						<p><span v-for="rate in tutor.rates" class="label label-danger dt-span-label">1对{{rate.name}} ${{ rate.rate }}/时/人</span></p>
+
+						<div class="profile-insight">可教课人数</div>
+						<p><span class="label label-info dt-span-label">{{ tutor.maxStudents}}</span></p>
 
 						<div class="profile-insight">联系方式</div>
 						<div v-if="canViewContact">
@@ -109,7 +112,7 @@
 								答应我，请填写一个UA的邮箱好么😄
 							</p>
 						</div>
-						<div class="progress">
+						<!--<div class="progress">
 							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
 								<span class="pull-left">Accounting</span>
 								<span class="pull-right">3.9</span>
@@ -120,7 +123,7 @@
 								<span class="pull-left">Math</span>
 								<span class="pull-right">4.0</span>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -130,13 +133,12 @@
 
 		<!-- ========== REVIEWS START ========== -->
 
-		<section id="teachers-reviews">
+		<!--<section id="teachers-reviews">
 			<div class="tint"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center" data-scroll-reveal>
 
-						<!-- OWL CAROUSEL START -->
 						<div class="owl-carousel">
 
 							<div class="item">
@@ -156,18 +158,17 @@
 							</div>
 
 						</div>
-						<!-- OWL CAROUSEL END -->
 
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 
 		<!-- ========== REVIEWS END ========== -->
 
 		<!-- ========== SKILLS START ========== -->
 
-		<section id="skills">
+		<!--<section id="skills">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
@@ -218,7 +219,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 
 		<!-- ========== SKILLS END ========== -->
 

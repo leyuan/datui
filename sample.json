@@ -1,8 +1,13 @@
 {
-  "name": "Tianchen",
-  "phone": "7809071534",
-  "email": "txiong@ualebrta.ca",
-  "avatar": "",
-  "courses": ["FIN 301"],
-  "intro": "BMO Risk Analyst, Student Tutor 2 years."
+  "name": "易超绝",
+  "phone": "7807164880",
+  "email": "chaojue@ualberta.ca",
+  "avatar": "images/tutors/yichaoqun.png",
+  "courses": ["MATH 114", "MATH 115", "MATH 125", "MATH 214", "MATH 225", "MATH 241", "STAT 151", "PHYS 124"],
+  "intro": "UA工程博士，2年tutor经验，曾教授过100+名学生，均取得优异的成绩。不论是基础巩固，还是强化拔高，学生均能在愉快，幽默又不失严谨的氛围中，取得满意的效果。",
+  "appointment": "提前一天预约",
+  "availableTime": "Workdays: 下午4点以后, Weekend: 全天, 可根据学生具体需求适当修改",
+  "rates": [{"name": "1", "rate": 40}, {"name": "2", "rate": 35}, {"name": "3", "rate": 30}, {"name": "4", "rate": 25}],
+  "maxStudents": "4",
+  "secret": "datui"
 }
