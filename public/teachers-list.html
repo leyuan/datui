@@ -103,7 +103,7 @@
                         <h3>{{ tutorStub.source.name }}</h3>
                         <div class="dt-margin-bottom-30 dt-course-div"><span v-for="course in tutorStub.source.courses" class="label label-success dt-span-label">{{ course }}</span></div>
                         <p>{{ tutorStub.source.intro }}</p>
-                        <a href="tutorStub.link">Read More <i class="fa fa-angle-right"></i></a>
+                        <a :href="tutorStub.link">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                 </li>
 

@@ -9,7 +9,7 @@ new Vue({
   beforeMount() {
     var tutorId = location.hash.substring(1); // get rid of the # character
     var url = `/api/tutor/${tutorId}`;
-    this.$http.get(url).then((res) => {
+    this.$http.get(url).then(function (res) {
       if (res.body) {
           var tutor = JSON.parse(res.body);
           tutor.courses.sort();
@@ -30,7 +30,7 @@ new Vue({
       var url = "/api/students";
 
       if (emailIsValid) {
-        this.$http.post(url, { email: email }).then((res, err) => {
+        this.$http.post(url, { email: email }).then(function (res, err) {
           if (res.status === 200) {
             createCookie(COOKIE_NAME, true, 20);
             this.$set(this._data, 'canViewContact', true);
