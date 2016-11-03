@@ -223,10 +223,29 @@ iframe {
 }
 
 .dt-margin-bottom-30{
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 }
 .dt-full-width{
 	width: 100%;
+}
+
+.dt-img-container{
+
+  width:  100%; /*or 70%, or what you want*/
+  height: 300px; /*or 70%, or what you want*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+.dt-course-div{
+    height: 80px;
+    overflow: hidden;
+}
+
+.dt-course-div:hover{
+    overflow: auto;
 }
 
 .profile-insight {
@@ -1503,5 +1522,9 @@ footer {
 			border: 0;
 			min-height: 85px;
 		}
+
+        .dt-img-container{
+            height: 400px;
+        }
 
 	}

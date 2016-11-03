@@ -11,7 +11,8 @@ new Vue({
     var url = `/api/tutor/${tutorId}`;
     this.$http.get(url).then((res) => {
       if (res.body) {
-        var tutor = JSON.parse(res.body);
+          var tutor = JSON.parse(res.body);
+          tutor.courses.sort();
         this.$set(this.$data, 'tutor', tutor);
       }
     });
