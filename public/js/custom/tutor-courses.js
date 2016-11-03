@@ -4,7 +4,8 @@ new Vue({
     var url = `${window.location.origin}/api/subjects`;
     this.$http.get(url).then((res) => {
       if (res.body) {
-        var body = JSON.parse(res.body);
+          var body = JSON.parse(res.body);
+         body.subjects.sort();
         var tutorSubjects = body.subjects.map(subject => ({
           name: subject,
           link: `teachers-list.html#${subject}`
