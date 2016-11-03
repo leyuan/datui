@@ -1,4 +1,4 @@
-const COOKIE_NAME = 'doNotCheatPlz';
+var COOKIE_NAME = 'doNotCheatPlz';
 
 /**
  * Tutor Keys are
@@ -7,11 +7,12 @@ const COOKIE_NAME = 'doNotCheatPlz';
 new Vue({
   el: '#tutor-info',
   beforeMount() {
-    const tutorId = location.hash.substring(1); // get rid of the # character
-    const url = `/api/tutor/${tutorId}`;
+    var tutorId = location.hash.substring(1); // get rid of the # character
+    var url = `/api/tutor/${tutorId}`;
     this.$http.get(url).then((res) => {
       if (res.body) {
-        const tutor = JSON.parse(res.body);
+          var tutor = JSON.parse(res.body);
+          tutor.courses.sort();
         this.$set(this.$data, 'tutor', tutor);
       }
     });
@@ -24,9 +25,9 @@ new Vue({
   },
   methods: {
     submitEmail(event) {
-      const email = this._data.userEmail;
-      const emailIsValid = checkUAEmail(email);
-      const url = "/api/students";
+      var email = this._data.userEmail;
+      var emailIsValid = checkUAEmail(email);
+      var url = "/api/students";
 
       if (emailIsValid) {
         this.$http.post(url, { email: email }).then((res, err) => {

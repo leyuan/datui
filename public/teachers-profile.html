@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -9,8 +9,8 @@
 		<link rel="shortcut icon" href="images/favicon.png">
 
 		<!-- Main Stylesheet -->
-		<link href="css/style.css" rel="stylesheet">
-
+		<link href="css/style.css?v=001" rel="stylesheet">
+		
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
@@ -18,31 +18,37 @@
 		<![endif]-->
 		<script src="js/custom/vue.js"></script>
 		<script src="js/custom/vue-resource.min.js"></script>
+
+		<style>
+			.row{
+				margin: 0;
+			}
+		</style>
 	</head>
 	<body >
 
 		<header>
-			<!-- ==== NAVBAR START ==== -->
-			<div class="navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Smartway - HTML Template" class="img-responsive logo" /></a>
-					</div>
-					<nav class="navbar-collapse collapse">
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.html">首页</a></li>
-							<li class="active"><a href="teachers-list.html"><u>找大腿</u></a></li>
-							<li><a href="contact.html"><u>成为大腿</u></a></li>
-						</ul>
-					</nav>
+		<!-- ==== NAVBAR START ==== -->
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="DaTui" class="img-responsive logo" /></a>
 				</div>
+				<nav class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="index.html">首页</a></li>
+						<li class="active"><a href="teachers-list.html"><u>找大腿</u></a></li>
+						<li><a href="contact.html"><u>成为大腿</u></a></li>
+					</ul>
+				</nav>
 			</div>
-			<!-- ==== NAVBAR END ==== -->
+		</div>
+		<!-- ==== NAVBAR END ==== -->
 
 		</header>
 
@@ -71,14 +77,24 @@
 					<div class="col-sm-6">
 						<img :src="tutor.avatar" alt="" class="img-responsive" style="margin: auto;"/>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-6" v-cloak>
 						<h1>{{ tutor.name }}</h1>
 						<p>{{ tutor.intro }}</p>
-						<p>教授课程</p>
-						<ul>
-							<li v-for="course in tutor.courses">{{ course }}</li>
-						</ul>
-						<p>联系方式</p>
+						<div class="profile-insight">教授课程</div>
+						<p><span v-for="course in tutor.courses" class="label label-success dt-span-label">{{ course }}</span></p>
+						<div class="profile-insight">预约</div>
+						<p>{{ tutor.appointment }}</p>
+
+						<div class="profile-insight">可教课时间</div>
+						<p>{{ tutor.availableTime }}</p>
+
+						<div class="profile-insight">收费标准</div>
+						<p><span v-for="rate in tutor.rates" class="label label-danger dt-span-label">1对{{rate.name}} ${{ rate.rate }}/时/人</span></p>
+
+						<div class="profile-insight">可教课人数</div>
+						<p><span class="label label-info dt-span-label">{{ tutor.maxStudents}}</span></p>
+
+						<div class="profile-insight">联系方式</div>
 						<div v-if="canViewContact">
 							<ul>
 								<li>{{ tutor.phone }}</li>
@@ -87,7 +103,7 @@
 						</div>
 						<div v-else>
 							<p>
-								<input type="text" id="email" v-model="userEmail" placeholder="请填写UA邮箱来查看联系方式" size=50>
+								<input type="text" id="email" class="form-control" v-model="userEmail" placeholder="请填写UA邮箱来查看联系方式" size=50>
 							</p>
 							<p>
 								<button type="submit" class="btn btn-primary" v-on:click="submitEmail">提交</button>
@@ -96,7 +112,7 @@
 								答应我，请填写一个UA的邮箱好么😄
 							</p>
 						</div>
-						<div class="progress">
+						<!--<div class="progress">
 							<div class="progress-bar" role="progressbar" data-transitiongoal="90">
 								<span class="pull-left">Accounting</span>
 								<span class="pull-right">3.9</span>
@@ -107,7 +123,7 @@
 								<span class="pull-left">Math</span>
 								<span class="pull-right">4.0</span>
 							</div>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -117,13 +133,12 @@
 
 		<!-- ========== REVIEWS START ========== -->
 
-		<section id="teachers-reviews">
+		<!--<section id="teachers-reviews">
 			<div class="tint"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center" data-scroll-reveal>
 
-						<!-- OWL CAROUSEL START -->
 						<div class="owl-carousel">
 
 							<div class="item">
@@ -143,18 +158,17 @@
 							</div>
 
 						</div>
-						<!-- OWL CAROUSEL END -->
 
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 
 		<!-- ========== REVIEWS END ========== -->
 
 		<!-- ========== SKILLS START ========== -->
 
-		<section id="skills">
+		<!--<section id="skills">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
@@ -205,7 +219,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</section>-->
 
 		<!-- ========== SKILLS END ========== -->
 
@@ -259,7 +273,7 @@
 									<!-- <div class="input-group-addon"><i class="fa fa-phone"></i></div> -->
 								</div>
 							</div>
-							<button type="submit" class="btn btn-primary">提交</button>
+							<button type="submit" class="btn btn-primary" id="msg-submit">提交</button>
 						</form>
 					</div>
 					<!-- ==== APPLY FOR TEACHER END == -->
@@ -272,7 +286,7 @@
 
 						<p>电话: <a href="tel:7809916996">780-991-6996</a><br>
 						又一个电话: <a href="tel:7809071534">780-907-1534</a><br>
-						Email: <a href="mailto:datui@gmail.com">datui@gmail.com</a></p>
+						Email: <a href="mailto:hello@datuiweb.com">hello@datuiweb.com</a></p>
 
 						<p><a href="index.html">回到首页<i class="fa fa-angle-right"></i></a></p>
 					</div>

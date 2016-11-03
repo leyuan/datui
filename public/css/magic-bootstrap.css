@@ -1,6 +1,7 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
+   font-family: "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, 华文细黑, STHeiti, "Microsoft YaHei";
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -265,7 +266,9 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: Lato;
+  /*font-family: Lato;*/
+   font-family: "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, 华文细黑, STHeiti, "Microsoft YaHei";
+  
   font-size: 13px;
   line-height: 1.71428;
   color: #777777;
@@ -354,7 +357,9 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Lato;
+  /*font-family: Lato;*/
+   font-family: "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, 华文细黑, STHeiti, "Microsoft YaHei";
+  
   font-weight: 400;
   line-height: 1.1;
   color: #222222;

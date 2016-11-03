@@ -200,6 +200,105 @@ iframe {
 	top: -2px;
 }
 
+.dt-spinner{
+	font-size: 18px;
+}
+
+.dt-container{
+	padding-left: 10%;
+}
+
+.dt-teacher-dropdown{
+	margin-bottom: 10px;
+}
+
+.dt-span-label{
+	margin-bottom: 5px;
+	margin-right: 5px;
+	display:inline-block;
+}
+
+.dt-no-margin{
+	margin: 0;
+}
+
+.dt-margin-bottom-30{
+	margin-bottom: 20px;
+}
+.dt-full-width{
+	width: 100%;
+}
+
+.dt-img-container{
+
+  width:  100%; /*or 70%, or what you want*/
+  height: 300px; /*or 70%, or what you want*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}.box {
+    width:200px;
+    height:167px;
+    float: left;
+    cursor:pointer;
+    border:1px solid #ff0000;
+}
+
+.work {
+    top:0;
+    max-width:1600px;
+    position:absolute;
+    border:1px solid blue;
+}
+
+.col2 {
+    width:200px; 
+    height:167px; 
+}
+
+.col2 img {
+    max-width:200px;
+}
+
+.col4{width: 200px; height: 200px; border: 1px solid blue;}
+
+.dt-course-div{
+    height: 80px;
+    overflow: hidden;
+}
+
+.dt-course-div:hover{
+    overflow: auto;
+}
+
+.profile-insight {
+    color: rgba(0,0,0,.8);
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 8px;
+}
+@media (min-width: 1200px) {
+    .row > .col-lg-3:nth-child(4n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 992px) and (max-width:1199px) {
+    .row > .col-md-4:nth-child(3n+1) {
+        clear: left;
+    }
+}
+
+@media (min-width: 768px) and (max-width:991px) {
+    .row > .col-sm-6:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+[v-cloak] {
+  display: none;
+}
 /* 2. HEADER
 -------------------------------------------------------------------*/
 
@@ -868,6 +967,7 @@ header {
 		margin: 0;
 	}
 
+
 	/* 5.9. UPCOMING EXAMS
 	-------------------------------------------------------------------*/
 
@@ -1257,10 +1357,21 @@ footer {
 
 
 .subject-grid {
-	padding: 10px;
-	background: grey;
-	color: white;
-	border-radius: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    margin: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    font-weight: 500;
+    color: #212121;
+    margin-bottom: 10px;
+}
+.subject-grid:hover{
+    color: #757575;
+}
+
+.subject-grid:active{
+        background-color: #e0e0e0;
 }
 
 #contact-message-group {
@@ -1421,6 +1532,9 @@ footer {
 	/* 9.3. Smartphones
 	-------------------------------------------------------------------*/
 	@media (max-width: 480px) {
+		.slider-offers{
+			left: 5%;
+		}
 
 		.slider-offers h3 {
 			font-size: 24px;
@@ -1428,6 +1542,10 @@ footer {
 
 		.slider-offers h4 {
 			font-size: 14px;
+		}
+
+		.dt-container{
+			padding-left: 15px;
 		}
 
 		#homepage .tools {
@@ -1439,5 +1557,9 @@ footer {
 			border: 0;
 			min-height: 85px;
 		}
+
+        .dt-img-container{
+            height: 400px;
+        }
 
 	}

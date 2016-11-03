@@ -2,8 +2,15 @@
 $(document).ready(function() {
 
 	// Contact form process
-	$('#contact-form').submit(function(event) {
+	var isSubmitted = false;
+	var contactForm = $('#contact-form');
+	var submitBtn = $('#msg-submit');
 
+	contactForm.submit(function(event) {
+		if(isSubmitted) return;
+		isSubmitted = true;
+
+		
 		$('.form-group').removeClass('has-error'); // remove the error class
 		$('.help-block').remove(); // remove the error text
 
@@ -21,7 +28,13 @@ $(document).ready(function() {
 			url 		: '/api/contact-message', // the url where we want to POST
 			data 		: formData, // our data object
 			dataType 	: 'json', // what type of data do we expect back from the server
-			encode 		: true
+			encode 		: true,
+			beforeSend	: function(){
+				$('div.alert', contactForm).remove();
+				contactForm.append('<i class="fa fa-spinner fa-spin dt-spinner" style="font-size: 18px;"></i>');
+				submitBtn.addClass('disabled');
+				
+			}
 		})
 		.done(function(data) {
 			if (!data.success) {
@@ -36,11 +49,17 @@ $(document).ready(function() {
 				}
 
 			} else {
-				$('#contact-form').append('<div class="alert alert-success">😄 Nice!提交成功了！😄</div>');
+				contactForm.append('<div class="alert alert-success">😄 Nice!提交成功了！😄</div>');
+				contactForm.trigger('reset');
 			}
 		})
 		.fail(function(data) {
-			$('#contact-form').append('<div class="alert alert-success">😳 因为莫名的原因.. 失败了... 😳</div>');
+			contactForm.append('<div class="alert alert-success">😳 因为莫名的原因.. 失败了... 😳</div>');
+		})
+		.always(function(){
+			$('i.fa-spinner', contactForm).remove();
+			submitBtn.removeClass('disabled');
+			isSubmitted = false;
 		});
 
 		// stop the form from submitting the normal way and refreshing the page
