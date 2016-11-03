@@ -237,7 +237,31 @@ iframe {
   background-position: center;
   background-repeat: no-repeat;
 
+}.box {
+    width:200px;
+    height:167px;
+    float: left;
+    cursor:pointer;
+    border:1px solid #ff0000;
 }
+
+.work {
+    top:0;
+    max-width:1600px;
+    position:absolute;
+    border:1px solid blue;
+}
+
+.col2 {
+    width:200px; 
+    height:167px; 
+}
+
+.col2 img {
+    max-width:200px;
+}
+
+.col4{width: 200px; height: 200px; border: 1px solid blue;}
 
 .dt-course-div{
     height: 80px;
@@ -1333,10 +1357,20 @@ footer {
 
 
 .subject-grid {
-	padding: 10px;
-	background: grey;
-	color: white;
-	border-radius: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    margin: 5px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    font-weight: 500;
+    color: #212121;
+}
+.subject-grid:hover{
+    color: #757575;
+}
+
+.subject-grid:active{
+        background-color: #e0e0e0;
 }
 
 #contact-message-group {
