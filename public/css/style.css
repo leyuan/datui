@@ -253,8 +253,8 @@ iframe {
 }
 
 .col2 {
-    width:200px; 
-    height:167px; 
+    width:200px;
+    height:167px;
 }
 
 .col2 img {
@@ -1351,6 +1351,11 @@ footer {
 
 /****. CUSTOM
 -------------------------------------------------------------------*/
+.logo {
+	max-width: 77%;
+	margin-top: 10%;	
+}
+
 #tutor-subjects a {
 	display: block;
 }
