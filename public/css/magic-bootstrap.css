@@ -268,7 +268,7 @@ html {
 body {
   /*font-family: Lato;*/
    font-family: "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, 华文细黑, STHeiti, "Microsoft YaHei";
-  
+
   font-size: 13px;
   line-height: 1.71428;
   color: #777777;
@@ -359,7 +359,7 @@ h6,
 .h6 {
   /*font-family: Lato;*/
    font-family: "Open Sans", Arial, "Hiragino Sans GB", 微软雅黑, 华文细黑, STHeiti, "Microsoft YaHei";
-  
+
   font-weight: 400;
   line-height: 1.1;
   color: #222222;
@@ -3968,14 +3968,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  border-color: #444444;
+  border-color: white;
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #090909;
 }
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: #444444;
+  background-color: white;
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
