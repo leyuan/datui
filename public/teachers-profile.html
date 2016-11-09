@@ -10,7 +10,7 @@
 
 		<!-- Main Stylesheet -->
 		<link href="css/style.css?v=002" rel="stylesheet">
-		
+
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="js/html5shiv.js"></script>
@@ -81,7 +81,7 @@
 						<h1>{{ tutor.name }}</h1>
 						<p>{{ tutor.intro }}</p>
 						<div class="profile-insight">教授课程</div>
-						<p><span v-for="course in tutor.courses" class="label label-success dt-span-label">{{ course }}</span></p>
+						<p><span v-for="course in tutor.courses" class="label label-course dt-span-label">{{ course }}</span></p>
 						<div class="profile-insight">预约</div>
 						<p>{{ tutor.appointment }}</p>
 
