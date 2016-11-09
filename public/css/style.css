@@ -1353,7 +1353,7 @@ footer {
 -------------------------------------------------------------------*/
 .logo {
 	max-width: 77%;
-	margin-top: 10%;	
+	margin-top: 10%;
 }
 
 #tutor-subjects a {
@@ -1430,6 +1430,10 @@ footer {
 
 		section {
 			padding: 30px 0;
+		}
+
+		#skills {
+			padding: 80px 0;
 		}
 
 		h1,h2 {
