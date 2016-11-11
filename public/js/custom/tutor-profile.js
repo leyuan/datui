@@ -26,6 +26,7 @@ new Vue({
   },
   methods: {
     submitEmail(event) {
+      
       var email = this._data.userEmail;
       var emailIsValid = checkUAEmail(email);
       var url = "/api/students";
@@ -36,10 +37,15 @@ new Vue({
             createCookie(COOKIE_NAME, true, 20);
             this.$set(this._data, 'canViewContact', true);
           }
-        })
+        });
+
+            
+        
       } else {
         this.$set(this._data, 'emailNotValid', true);
       }
+
+    ga('send', 'event', 'Users', 'Enter', 'Email: ' + email + ' for tutor ' + this._data.tutor.name);  
     }
   }
 });
