@@ -14,6 +14,7 @@ new Vue({
           var tutor = JSON.parse(res.body);
           tutor.courses.sort();
         this.$set(this.$data, 'tutor', tutor);
+        ga('send', 'event', 'Users', 'View', tutor.name);
       }
     });
   },
