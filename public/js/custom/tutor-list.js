@@ -19,6 +19,8 @@ new Vue({
                 this.$set(this.$data, 'subjects', body.subjects.sort());
             }
         });
+
+        ga('send', 'event', 'Users', 'View', 'Subject: ' + (window.location.hash.substring(1) || 'All')); // track subject 
     },
     data: {
         tutorResponseBody: [],
@@ -32,6 +34,8 @@ new Vue({
             var body = this._data.tutorResponseBody;
             var tutorList = filterTutors(body, selectedCourse);
             this.$set(this._data, 'tutorList', tutorList);
+
+            ga('send', 'event', 'Users', 'View', 'Subject: ' + selectedCourse); // track subject 
         }
     }
 });
