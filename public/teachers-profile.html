@@ -75,7 +75,7 @@
 			<div class="container">
 				<div class="row" id="tutor-info">
 					<div class="col-sm-6">
-						<img :src="tutor.avatar" alt="" class="img-responsive" style="margin: auto;"/>
+						<img v-if="tutor.avatar && tutor.avatar.length > 0" :src="tutor.avatar" alt="" class="img-responsive" style="margin: auto;"/>
 					</div>
 					<div class="col-sm-6" v-cloak>
 						<h1>{{ tutor.name }}</h1>

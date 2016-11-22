@@ -95,7 +95,7 @@
             <ul class="teachers row">
 
                 <li v-for="tutorStub in tutorList" class="col-lg-3 col-md-4 col-sm-6 teacher-item">
-                    <a :href="tutorStub.link">
+                    <a v-if="tutorStub.source.avatar && tutorStub.source.avatar.length > 0" v-bind:href="tutorStub.link">
                         <div class="dt-img-container" v-bind:style="{backgroundImage: 'url(' + tutorStub.source.avatar + ')'}"></div>
                     </a>
                     <!--<a :href="tutorStub.link"><img :src="tutorStub.source.avatar" alt="" class="img-responsive dt-full-width" /></a>-->
