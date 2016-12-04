@@ -95,14 +95,14 @@
             <ul class="teachers row">
 
                 <li v-for="tutorStub in tutorList" class="col-lg-3 col-md-4 col-sm-6 teacher-item">
-                    <a v-if="tutorStub.source.avatar && tutorStub.source.avatar.length > 0" v-bind:href="tutorStub.link">
-                        <div class="dt-img-container" v-bind:style="{backgroundImage: 'url(' + tutorStub.source.avatar + ')'}"></div>
+                    <a v-if="tutorStub.details.avatar && tutorStub.details.avatar.length > 0" v-bind:href="tutorStub.link">
+                        <div class="dt-img-container" v-bind:style="{backgroundImage: 'url(' + tutorStub.details.avatar + ')'}"></div>
                     </a>
-                    <!--<a :href="tutorStub.link"><img :src="tutorStub.source.avatar" alt="" class="img-responsive dt-full-width" /></a>-->
+                    <!--<a :href="tutorStub.link"><img :src="tutorStub.details.avatar" alt="" class="img-responsive dt-full-width" /></a>-->
                     <div class="description" v-cloak>
-                        <h3>{{ tutorStub.source.name }}</h3>
-                        <div class="dt-margin-bottom-30 dt-course-div"><span v-for="course in tutorStub.source.courses" class="label label-course dt-span-label">{{ course }}</span></div>
-                        <p>{{ tutorStub.source.intro }}</p>
+                        <h3>{{ tutorStub.details.name }}</h3>
+                        <div class="dt-margin-bottom-30 dt-course-div"><span v-for="course in tutorStub.details.courses" class="label label-course dt-span-label">{{ course }}</span></div>
+                        <p>{{ tutorStub.details.intro }}</p>
                         <a :href="tutorStub.link">Read More <i class="fa fa-angle-right"></i></a>
                     </div>
                 </li>
@@ -231,7 +231,10 @@
 
     <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
     <script src="js/custom/shared.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
     <script src="js/custom/tutor-list.js?v=003"></script>
+
 </body>
 
 </html>
