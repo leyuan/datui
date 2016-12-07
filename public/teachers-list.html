@@ -86,7 +86,7 @@
 
             <h2>大腿们 and Tutors</h2>
 
-            <select v-model="selected" v-on:change="doThis($event)" class="form-control dt-teacher-dropdown" v-cloak>
+            <select v-model="selected" v-on:change="doFilterTutor($event)" class="form-control dt-teacher-dropdown" v-cloak>
                 <option>All</option>
                 <option v-for="subject in subjects">{{subject}}</option>
                 <option>Don't have what I want</option>
@@ -230,9 +230,9 @@
     <script src="js/settings.js"></script>
 
     <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
-    <script src="js/custom/shared.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+
+    <script src="js/custom/shared.js"></script>
     <script src="js/custom/tutor-list.js?v=003"></script>
 
 </body>

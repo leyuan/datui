@@ -1,12 +1,5 @@
 (function(){
-  var config = {
-    apiKey: "AIzaSyCF3MunGpmlhR_dgFgTsopUu108Zx1XpBI",
-    authDomain: "datui-ea9e4.firebaseapp.com",
-    databaseURL: "https://datui-ea9e4.firebaseio.com",
-    storageBucket: "datui-ea9e4.appspot.com",
-    messagingSenderId: "200514863768"
-  };
-  firebase.initializeApp(config);
+  'use strict';
 
   var COOKIE_NAME = 'doNotCheatPlz';
 
