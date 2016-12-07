@@ -122,7 +122,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<a v-for="subject in tutorSubjects" :href="subject.link" class="col-lg-3 col-md-3 col-sm-3">
+					<a v-for="subject in subjects" v-bind:href="subject.link" class="col-lg-3 col-md-3 col-sm-3">
 						<div class="subject-grid text-center" v-cloak>{{subject.name}}</div>
 					</a>
 				</div>
@@ -283,9 +283,12 @@
 		<!-- jQuery Settings -->
 		<script src="js/settings.js"></script>
 
+	    <script src="https://cdn.jsdelivr.net/lodash/4.16.4/lodash.min.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+
 		<!-- Cutsom JS-->
-		<script src="js/custom/tutor-courses.js?v=003"></script>
-		<script src="js/custom/index.js?v=003"></script>
 		<script src="js/custom/shared.js"></script>
+		<script src="js/custom/index.js?v=003"></script>
+		<script src="js/custom/tutor-courses.js?v=003"></script>
 	</body>
 </html>
